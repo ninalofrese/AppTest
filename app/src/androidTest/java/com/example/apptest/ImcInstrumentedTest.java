@@ -30,12 +30,7 @@ public class ImcInstrumentedTest {
 
     @Test
     public void imc() {
-        onView(withId(R.id.peso_edit_text_id)).perform(typeText("80"));
-        closeSoftKeyboard();
-        onView(withId(R.id.altura_edit_text_id)).perform(typeText("2"));
-        closeSoftKeyboard();
-        onView(withId(R.id.calcular_button_id)).perform(click());
-        onView(withId(R.id.resultado_text_id)).check(matches(withText("20.0")));
+
     }
 
 

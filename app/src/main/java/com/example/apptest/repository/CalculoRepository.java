@@ -6,7 +6,7 @@ public class CalculoRepository {
 
     public Observable<Float> calcularIMC(float peso, float altura) {
         return Observable.create(emitter -> {
-            float imc = peso / (altura * altura);
+            float imc = peso / altura * altura;
             emitter.onNext(imc);
             emitter.onComplete();
         });

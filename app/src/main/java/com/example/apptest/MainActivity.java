@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         MainViewModel mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
 
         calcularButton.setOnClickListener(view ->
-                mainViewModel.calcular(Float.parseFloat(pesoEditText.getEditableText().toString()), Float.parseFloat(alturaEditText.getEditableText().toString())));
+                mainViewModel.calcular(Float.parseFloat(alturaEditText.getEditableText().toString()), Float.parseFloat(pesoEditText.getEditableText().toString())));
 
         mainViewModel.getResultadoLiveData()
                 .observe(this, resultado -> resultadoTextView.setText(String.valueOf(resultado)));

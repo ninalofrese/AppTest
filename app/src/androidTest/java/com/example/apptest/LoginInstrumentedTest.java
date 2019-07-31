@@ -29,23 +29,12 @@ public class LoginInstrumentedTest {
 
     @Test
     public void login() {
-        onView(withId(R.id.login_edit_text_id)).perform(typeText("admin@digitalhouse.com"));
-        closeSoftKeyboard();
-        onView(withId(R.id.senha_edit_text_id)).perform(typeText("senha123"));
-        closeSoftKeyboard();
-        onView(withId(R.id.ok_button)).perform(click());
-        onView(withId(R.id.imc_title_text_id)).check(matches(isDisplayed()));
+
     }
 
 
     @Test
     public void loginInvalido() {
-        onView(withId(R.id.login_edit_text_id)).perform(typeText("admin@digitalhouse.com"));
-        closeSoftKeyboard();
-        onView(withId(R.id.senha_edit_text_id)).perform(typeText("senha312"));
-        closeSoftKeyboard();
-        onView(withId(R.id.ok_button)).perform(click());
 
-        onView(withId(R.id.login_edit_text_id)).check(matches(hasErrorText("Login/senha inválido(s)")));
     }
 }
