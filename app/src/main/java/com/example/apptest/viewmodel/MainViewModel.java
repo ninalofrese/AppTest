@@ -8,7 +8,6 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.apptest.repository.CalculoRepository;
-import com.example.apptest.repository.LoginRepository;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -16,13 +15,13 @@ import io.reactivex.schedulers.Schedulers;
 
 public class MainViewModel extends AndroidViewModel {
 
-    private MutableLiveData<Integer> resultadoLiveData = new MutableLiveData<>();
+    private MutableLiveData<Float> resultadoLiveData = new MutableLiveData<>();
 
     private CompositeDisposable disposable = new CompositeDisposable();
 
     private CalculoRepository calculoRepository = new CalculoRepository();
 
-    public LiveData<Integer> getResultadoLiveData() {
+    public LiveData<Float> getResultadoLiveData() {
         return resultadoLiveData;
     }
 
@@ -30,9 +29,9 @@ public class MainViewModel extends AndroidViewModel {
         super(application);
     }
 
-    public void calcular(int numero1, int numero2) {
+    public void calcular(float peso, float altura) {
         disposable.add(
-                calculoRepository.multiplicacao(numero1, numero2)
+                calculoRepository.calcularIMC(peso, altura)
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribeOn(Schedulers.newThread())
                         .subscribe(resultado -> resultadoLiveData.postValue(resultado),

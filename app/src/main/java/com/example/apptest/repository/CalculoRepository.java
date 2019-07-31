@@ -4,21 +4,12 @@ import io.reactivex.Observable;
 
 public class CalculoRepository {
 
-    public Observable<Integer> multiplicacao(int numero, int numero2) {
+    public Observable<Float> calcularIMC(float peso, float altura) {
         return Observable.create(emitter -> {
-            emitter.onNext(multiplicar(numero, numero2));
+            float imc = peso / (altura * altura);
+            emitter.onNext(imc);
             emitter.onComplete();
         });
     }
-
-    private Integer multiplicar(int numero, int numero2) {
-        int produto = 0;
-
-        for (int i = 0; i < numero2; i++) {
-            produto += numero2;
-        }
-        return produto;
-    }
-
 
 }
