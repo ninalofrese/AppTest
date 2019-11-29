@@ -29,7 +29,7 @@ public class LoginInstrumentedTest {
 
     @Test
     public void login() {
-
+        onView(withId(R.id.login_input_layout_id)).check(typeText(""))
     }
 
 
